@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Add New Tutorial to <%= topic.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/topics/<%= topic._id %>/tutorials" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="tutorial[title]" placeholder="text">
+                </div>
+                <span>
+                <i class="fa fa-bold cursor" aria-hidden="true" id="bold" ></i>
+                </span>
+                <span>
+                <i class="fa fa-italic cursor" aria-hidden="true"  ></i>
+                </span>
+                <div class="form-control" id="tut_text" contenteditable="true" style="border:1px solid black;width:100px;">
+
+                </div>
+                <iframe contenteditable="true">
+    </iframe>
+                <div class="form-group">
+                    <input class="form-control" type="text" id="tut_input" name="tutorial[text]" placeholder="text">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block" onclick="assign()" >Submit!</button>
+                </div>
+            </form>
+            <a href="/topics">Go Back</a>
+        </div>
+    </div>
+</div>
+<script>
+    var bold= document.getElementById("bold");
+bold.addEventListener("click",function () {
+	document.execCommand('bold',false,null);
+});
+function assign(){
+    alert("Hi");
+    var tut_text=document.getElementById("tut_text");
+    var tut_input=document.getElementById("tut_input");
+    tut_input.value=tut_text.innerHTML;
+    alert(tut_input.value);
+    alert(tut_text.innerHTML);
+    alert("bye");
+}
+
+</script>
+<% include ../partials/footer %>
+

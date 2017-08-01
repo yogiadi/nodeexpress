@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <!--<img class="img-responsive" src="<%= topic.image %>">-->
+                <div class="caption-full">
+                    <!--<h4 class="pull-right">$9.00/night</h4>-->
+                    <h4><a href="/topics/<%= topic._id %>"><%=topic.name%></a></h4>
+                    <p><%= topic.description %></p>
+                    <p>
+                        Submitted By <a href="/home/<%=topic.author.id%>"><%= topic.author.username %></a>
+                    </p>
+                    <% if(currentUser && topic.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-xs btn-warning" href="/topics/<%= topic._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/topics/<%= topic._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    <% }%>
+                    <a class="btn btn-xs btn-default" href="/topics/<%= topic._id %>/upvote">Helpful&nbsp<%=topic.priority%></a>
+                </div>
+            </div>
+            <div >
+                <div class="text-right">
+                    <a class="btn btn-success" href="/topics/<%= topic._id %>/tutorials/new">Add New Tutorial</a>
+                </div>
+                <hr>
+                <% topic.tutorials.forEach(function(tutorial){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><a href="/home/<%=tutorial.author.id%>"><%= tutorial.author.username %></strong></a>
+                            <!--<span class="pull-right">10 days ago</span>-->
+                            <p>
+                                <%= tutorial.title %> 
+                                <%- tutorial.text %> 
+                            </p>
+                        <% if(currentUser && tutorial.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-xs btn-warning" 
+                               href="/topics/<%=topic._id %>/tutorials/<%=tutorial._id %>/edit">Edit</a>
+                            <form id="delete-form" action="/topics/<%=topic._id %>/tutorials/<%=tutorial._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                        <% } %>
+                        <a class="btn btn-primary btn-xs" href="/topics/<%=topic._id %>/tutorials/<%=tutorial._id %>/show">Read more</a>
+                        <a class="btn btn-default btn-xs" href="/topics/<%=topic._id %>/tutorials/<%=tutorial._id %>/upvote">Helpful &nbsp <%=tutorial.priority%></a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

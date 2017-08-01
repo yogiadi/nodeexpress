@@ -1,0 +1,39 @@
+<% include partials/header %>
+<div contenteditable="true" placeholder="Add your blog">
+    
+</div>
+         <div class="container">
+              <div class="row">
+                  <div class="col-md-3 col-sm-12 col-xs-12" >
+                      <div class="thumbnail">
+                        <p>
+                            <strong>Name:<%=tutor.name %><br></strong>
+                            Phone:<%=tutor.ph_no %><br>
+                            Email:<%=tutor.email %><br>
+                            Expert:<%=tutor.expert %><br>
+                            Fees:<%=tutor.fees %><br>
+                            Location:<%=tutor.location%><br>
+                        </p>
+                       </div>
+                      </div>
+                      <% tutor.tutorials.forEach(function(tutorial){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>
+                                <%= tutorial.text %> 
+                            </p>
+                        </div>
+                    </div>
+                <% }); %>
+Add new tutorial
+<form action="/tutors/<%= tutor._id %>/tutorials" method="POST">
+    <textarea placeholder="Add tutorial here" name="tutorialText"></textarea>
+    <textarea placeholder="Topics" name="tutorialTopic"></textarea>
+    <input type="text" name="tutorName" value="<%=tutor.name%>"></input>
+    <button type="submit">Submit</button>
+    </form>
+                  
+              
+            </div>
+             </div>
+<% include partials/footer %>

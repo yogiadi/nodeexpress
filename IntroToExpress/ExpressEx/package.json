@@ -1,0 +1,14 @@
+{
+  "name": "expressex",
+  "version": "1.0.0",
+  "description": "Express exericse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aditya Yogi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

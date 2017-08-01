@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+    <div class="container" style="width:70%;margin:0 auto;padding-left:20%;padding-top:5%;text-align:center">
+        <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+<h4>Log in to Connect</h4>
+<form action="/login" method="POST">
+    <div class="form-group">
+    <input type="text" name="username" placeholder="username" style="width:100%">
+    </div>
+    <div class="form-group">
+    <input type="password" name="password" placeholder="password" style="width:100%">
+    </div>
+    <input type="submit" class="btn btn-success" value="Signin" style="display:inline-block;width:100%">
+</form>
+</div>
+</div>
+</div>
+<% include partials/footer %>

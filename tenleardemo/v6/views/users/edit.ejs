@@ -1,0 +1,11 @@
+<% include ../partials/header %> 
+<h1>Edit profile</h1>
+
+<form action="/users/<%=currentUser._id%>/" method="POST">
+    <input type="text" name="user[firstname]" placeholder="First Name">
+    <input type="text" name="user[lastname]" placeholder="Last Name">
+    <input type="email" name="user[email]" placeholder="Email">
+    <input type="text" name="user[expert]" placeholder="Expert">
+    <button>Edit</button>
+</form>
+<% include ../partials/footer %> 

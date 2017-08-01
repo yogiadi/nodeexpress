@@ -1,0 +1,11 @@
+git init
+add in scripts
+git add .
+git add {file_name}
+git commit -m "database changes"
+git push heroku master
+heroku domains
+
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable

@@ -1,0 +1,10 @@
+<% include partials/header %>
+
+<% for (var i=0;i<post.length;i++){ %>
+    <p>I love <%= post[i].author %></p>
+<% } %>
+<% post.forEach(function(postel){ %>
+    <p>I love <%= postel.author %></p>
+<% }) %>
+
+<% include partials/footer %>

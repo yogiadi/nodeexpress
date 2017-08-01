@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Create a New Tutor</h1>
+        <div style="width : 30%; margin: 0 auto;">
+        <form action="/edit" method="POST">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" type="text" name="tutor[name]" value="<%=tutor.name%>">
+            </div>
+            <div class="form-group">
+                <label>Contact no</label>
+                <input class="form-control" type="text" name="tutor[ph_no]" value="<%=tutor.ph_no%>">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="email" name="tutor[email]" value="<%=tutor.email%>">
+            </div>
+            <div class="form-group">
+                <label>Expert</label>
+                <input class="form-control" type="text" name="tutor[expert]" value="<%=tutor.expert%>">
+            </div>
+            <div class="form-group">
+                <label>Fees</label>
+                <input class="form-control" type="text" name="tutor[fees]" value="<%=tutor.fees%>">
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input class="form-control" type="text" name="tutor[location]" value="<%=tutor.location%>">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block"type="Submit">Submit</button>
+            </div>
+            
+        </form>
+        <a href="/">Go Back!</a>
+        </div>
+        
+    </div>
+</div>
+
+<% include partials/footer %>

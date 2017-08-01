@@ -1,0 +1,20 @@
+<% include partials/header %>
+         <div class="container">
+              <div class="row">
+                 <% tutorials.forEach(function(tutorial){ %>
+                  <div class="col-md-12 col-sm-12 col-xs-12" >
+                      <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);" >
+                        <p>
+                            <%=tutorial.text %><br>
+                            <h6><%=tutorial.author%><br></h6>
+                            <%=tutorial.helpful%><br>
+                            <%=tutorial.author%><br>
+                        </p>
+                       </div>
+                       </a>
+                  </div>
+                 <% }); %>
+              
+            </div>
+             </div>
+<% include partials/footer %>
