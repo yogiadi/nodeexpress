@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=320, initial-scale=1">
+        <title>Tenlear</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+           .navbar{
+               background-color:#ff6600;
+               border:2px solid #ff6600;
+           }
+           .btn-googleplus {
+	  background: #E93F2E;
+	  border-radius: 0;
+	  color: #fff;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #b72213;
+	}
+	.btn-googleplus:link, .btn-googleplus:visited {
+	  color: #fff;
+	}
+	.btn-googleplus:active, .btn-googleplus:hover {
+	  background: #b72213;
+	  color: #fff;
+	}
+           </style>
+    </head>
+    <body>
+    <nav class="navbar navbar-default">
+        <div class="container" >
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                <a class="navbar-brand" href="/" style="color:#ffffff">Tenlear</a>
+            </div>
+            <div class="collapse navbar-collapse"id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left" style="background-color: #ff6600;">
+                    <li><a href="/" style="color:#ffffff;background:#FF0000"">Topics</a></li>
+                    <li><a href="/mentor/index" style="color:#ffffff;">Mentors</a></li>
+                </ul>
+                    
+                <ul class="nav navbar-nav navbar-right" style="background-color: #ff6600;">
+                    <% if(!currentUser){ %>
+                        <li ><a href="/auth/google" style="color:#ffffff;">Login with Google+</a></li>
+                        <!--<li><a href="/register">Sign Up</a></li>-->
+                    <% } else { %>
+                        <li><a href="/home/<%=currentUser._id%>" style="color:#ffffff;">Home</a></li>
+                        <li><a href="/edit/<%=currentUser._id%>" style="color:#ffffff;">Edit</a></li>
+                        <!--<li><a href="#" style="color:#ffffff;">Signed In As <%= currentUser.email %></a></li>-->
+                        <li><a href="/logout" style="color:#ffffff;">Logout</a></li>
+                    <% } %>
+                    <li><a href="/topics/new" style="color:#ffffff;">Add New Topic</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" action="/search" method="POST" style="margin-right:0">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Topic" id="search_text"name="search">
+        
+        <div class="input-group-btn">
+        <button type="submit" class="btn btn-default" id="search_button" onclick="disable_button()">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+            </div>
+
+            <!--<input type="radio" class="form-control">Topic</input>-->
+        </div>
+      </form>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+        </div>
+    </div>
+    </div>

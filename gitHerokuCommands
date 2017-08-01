@@ -9,3 +9,13 @@ heroku domains
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
+
+git config --global user.name "user_name"
+
+
+echo "# nodeexpress" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/yogiadi/nodeexpress.git
+git push -u origin master
